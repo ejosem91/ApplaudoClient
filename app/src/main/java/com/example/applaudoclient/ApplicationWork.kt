@@ -2,11 +2,11 @@ package com.example.applaudoclient
 
 import android.app.Application
 
-class AplicationWork: Application() {
+class ApplicationWork : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        UpdateDataBase.start(this@AplicationWork)
+        UpdateDataBase.start(this@ApplicationWork)
 
     }
 }
