@@ -1,9 +1,8 @@
-package com.example.applaudoclient
+package com.example.applaudoclient.db
 
 import android.content.Context
 import androidx.work.*
 import com.example.applaudoclient.api.Api
-import com.example.applaudoclient.db.DatabaseHandler
 import com.example.applaudoclient.model.Post
 import retrofit2.Call
 import java.util.concurrent.TimeUnit
@@ -17,7 +16,7 @@ class UpdateDataBase(appContext: Context, workerParams: WorkerParameters) :
         val result = call.execute()
         if (result.isSuccessful) {
             db.deleteAll()
-            result.body().forEach { post ->
+            result.body()?.forEach { post ->
                 db.updatePost(Post(post.id, post.userId, post.title, post.body))
             }
             return Result.success()

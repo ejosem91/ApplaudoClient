@@ -1,4 +1,4 @@
-package com.example.applaudoclient.view
+package com.example.applaudoclient
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.loader.content.AsyncTaskLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.applaudoclient.R
 import com.example.applaudoclient.adapter.PostAdapter
 import com.example.applaudoclient.api.Api
 import com.example.applaudoclient.db.DatabaseHandler
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String>,
 
     override fun onLoadFinished(loader: Loader<String>, data: String?) {
         dbList = getDataFromDb()
-
         val adapter = PostAdapter(dbList, this)
         recyclerView.adapter = adapter
 
@@ -70,11 +68,9 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String>,
 
     private fun saveData() {
         val db = DatabaseHandler(this)
-        val number = db.deleteAll()
-        if (number != -1) {
-            listPost?.forEach { post ->
-                db.savePost(Post(post.id, post.userId, post.title, post.body))
-            }
+        db.deleteAll()
+        listPost?.forEach { post ->
+            db.savePost(Post(post.id, post.userId, post.title, post.body))
         }
     }
 

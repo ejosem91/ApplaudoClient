@@ -33,7 +33,6 @@ class DetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Comment>>?, response: Response<List<Comment>>) {
                 val commentList = response.body()
                 recyclerView.adapter = CommentAdapter(commentList)
-
             }
 
             override fun onFailure(call: Call<List<Comment>>?, t: Throwable?) {
