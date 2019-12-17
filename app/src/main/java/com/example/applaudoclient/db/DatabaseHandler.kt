@@ -37,13 +37,13 @@ class DatabaseHandler(
 
     fun savePost(post: Post): Long {
         val db = this.writableDatabase
-        val contentVlues = ContentValues()
-        contentVlues.put(KEY_ID, post.id)
-        contentVlues.put(USER_ID, post.userId)
-        contentVlues.put(KEY_BODY, post.body)
-        contentVlues.put(KEY_TITLE, post.title)
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, post.id)
+        contentValues.put(USER_ID, post.userId)
+        contentValues.put(KEY_BODY, post.body)
+        contentValues.put(KEY_TITLE, post.title)
 
-        val success = db.insert(TABLE_POST, null, contentVlues)
+        val success = db.insert(TABLE_POST, null, contentValues)
         db.close()
 
         return success
@@ -51,11 +51,11 @@ class DatabaseHandler(
 
     fun updatePost(post: Post){
         val db = this.writableDatabase
-        val contentVlues = ContentValues()
-        contentVlues.put(USER_ID, post.userId)
-        contentVlues.put(KEY_BODY, post.body)
-        contentVlues.put(KEY_TITLE, post.title)
-        db.update(TABLE_POST, contentVlues, "id="+ post.id, null)
+        val contentValues = ContentValues()
+        contentValues.put(USER_ID, post.userId)
+        contentValues.put(KEY_BODY, post.body)
+        contentValues.put(KEY_TITLE, post.title)
+        db.update(TABLE_POST, contentValues, "id="+ post.id, null)
         db.close()
     }
 
