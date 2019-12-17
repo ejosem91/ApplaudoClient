@@ -1,4 +1,4 @@
-package com.example.applaudoclient
+package com.example.applaudoclient.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.loader.content.AsyncTaskLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.applaudoclient.R
 import com.example.applaudoclient.adapter.PostAdapter
 import com.example.applaudoclient.api.Api
 import com.example.applaudoclient.db.DatabaseHandler
