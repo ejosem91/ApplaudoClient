@@ -14,7 +14,7 @@ class CommentAdapter(private val listPost: List<Comment>) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.comment_list, parent, false)
+        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.comment_list, parent, false)
         return ViewHolder(view)
     }
 

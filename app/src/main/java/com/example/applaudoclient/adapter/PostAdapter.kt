@@ -20,7 +20,7 @@ class PostAdapter(private val listPost: List<Post>, selectedPost: SelectPost) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.post_list, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.post_list, parent, false)
         return ViewHolder(view)
     }
 

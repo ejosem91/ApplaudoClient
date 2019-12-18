@@ -5,6 +5,7 @@ import androidx.work.*
 import com.example.applaudoclient.api.Api
 import com.example.applaudoclient.model.Post
 import retrofit2.Call
+import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
 class UpdateDataBase(appContext: Context, workerParams: WorkerParameters) :
@@ -13,7 +14,7 @@ class UpdateDataBase(appContext: Context, workerParams: WorkerParameters) :
 
     override fun doWork(): Result {
         val call: Call<List<Post>> = Api.retrofit().getPosts()
-        val result = call.execute()
+        val result:Response<List<Post>> = call.execute()
         if (result.isSuccessful) {
             db.deleteAll()
             result.body()?.forEach { post ->

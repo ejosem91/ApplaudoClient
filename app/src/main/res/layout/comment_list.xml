@@ -3,10 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     android:layout_margin="10dp">
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/comment_name"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:textAllCaps="false"
         android:textStyle="bold"
@@ -19,6 +19,8 @@
         android:id="@+id/comment_id_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/colorWite"
         android:padding="10dp">
     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -26,6 +28,8 @@
         android:id="@+id/comment_email_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
         android:padding="10dp">
     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -33,6 +37,8 @@
         android:id="@+id/comment_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/colorWite"
         android:padding="10dp">
     </androidx.appcompat.widget.AppCompatTextView>
 

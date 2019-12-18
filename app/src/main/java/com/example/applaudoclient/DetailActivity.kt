@@ -31,7 +31,7 @@ class DetailActivity : AppCompatActivity() {
         val call: Call<List<Comment>> = Api.retrofit().getComment(id)
         call.enqueue(object : Callback<List<Comment>> {
             override fun onResponse(call: Call<List<Comment>>?, response: Response<List<Comment>>) {
-                val commentList = response.body()
+                val commentList:List<Comment> = response.body()
                 recyclerView.adapter = CommentAdapter(commentList)
             }
 

@@ -36,7 +36,7 @@ class DatabaseHandler(
     }
 
     fun savePost(post: Post): Long {
-        val db = this.writableDatabase
+        val db:SQLiteDatabase = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(KEY_ID, post.id)
         contentValues.put(USER_ID, post.userId)
@@ -50,7 +50,7 @@ class DatabaseHandler(
     }
 
     fun updatePost(post: Post){
-        val db = this.writableDatabase
+        val db:SQLiteDatabase = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(USER_ID, post.userId)
         contentValues.put(KEY_BODY, post.body)
@@ -60,7 +60,7 @@ class DatabaseHandler(
     }
 
     fun deleteAll(): Int {
-        val db = this.writableDatabase
+        val db:SQLiteDatabase = this.writableDatabase
         val codeExe = db.delete(TABLE_POST, null, null)
         db.close()
         return codeExe
@@ -70,7 +70,7 @@ class DatabaseHandler(
 
         val postList: ArrayList<Post> = ArrayList()
         val selectQuery = "SELECT  * FROM $TABLE_POST"
-        val db = this.readableDatabase
+        val db:SQLiteDatabase = this.readableDatabase
         val cursor: Cursor?
 
         try {
